@@ -1,17 +1,11 @@
 <template>
   <div>
     <Header />
-    <FormularioNovoMedicamento @cadastrarMedicamento="cadastrarMedicamento" />
     <FormularioNovoMedicamento @adicionarMedicamento="adicionarMedicamento" />
 
-    <!-- EX 08 -->
     <div class="lista-medicamentos">
-      <CardMedicamento v-for="medicamento in listaMedicamentos"
-         :key="medicamento.id" 
-         :nomeMedicamento="medicamento.nome"
-        :nomeLaboratorio="medicamento.laboratorio" 
-        :preco="medicamento.preco" 
-        :favorito="medicamento.favorito"
+      <CardMedicamento v-for="medicamento in listaMedicamentos" :key="medicamento.id" :nomeMedicamento="medicamento.nome"
+        :nomeLaboratorio="medicamento.laboratorio" :preco="medicamento.preco" :favorito="medicamento.favorito"
         @favoritarMedicamento="favoritarMedicamento(medicamento.id)" />
     </div>
   </div>
@@ -20,7 +14,7 @@
 <script>
 import Header from './components/Header.vue';
 import FormularioNovoMedicamento from './components/FormularioNovoMedicamento.vue';
-import CardMedicamento from './components/CardMedicamento.vue'; // EX 08
+import CardMedicamento from './components/CardMedicamento.vue';
 
 export default {
   components: {
@@ -29,28 +23,22 @@ export default {
     CardMedicamento
   },
   data() {
-    // EX 04
     return {
       listaMedicamentos: []
     };
   },
   methods: {
-    cadastrarMedicamento(medicamento) {
-      console.log('Cadastrar novo medicamento:', medicamento);
-    },
-
-    // EX 05
     adicionarMedicamento(novoMedicamento) {
-      novoMedicamento.id = this.listaMedicamentos.length + 1;
+      novoMedicamento.id = this.listaMedicamentos.length
       novoMedicamento.favorito = false;
 
       this.listaMedicamentos.push(novoMedicamento);
 
       console.log('Medicamento cadastrado:', novoMedicamento);
     },
-    // EX 06
+
     favoritarMedicamento(id) {
-      const medicamento = this.listaMedicamentos.find(item => item.id === id);
+      const medicamento = this.listaMedicamentos[id]
 
       if (medicamento) {
         medicamento.favorito = !medicamento.favorito;

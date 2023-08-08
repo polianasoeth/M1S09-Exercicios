@@ -1,4 +1,3 @@
-<!-- EX 07 -->
 <template>
     <div class="card">
         <img src="https://media.istockphoto.com/id/635948926/pt/foto/3d-rendering-of-antibiotic-pills-in-blister-pack.jpg?b=1&s=612x612&w=0&k=20&c=7RV73kFAzIeYVgeVLh-lyvilBSOdcV9cqsznXgHN4rs="

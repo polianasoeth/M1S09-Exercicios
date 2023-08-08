@@ -1,4 +1,3 @@
-<!-- EX 03 -->
 <template>
     <div class="formulario">
         <form @submit.prevent="submitForm">
@@ -20,6 +19,8 @@
 </template>
   
 <script>
+import { toRaw } from 'vue';
+
 export default {
     data() {
         return {
@@ -32,8 +33,7 @@ export default {
     },
     methods: {
         submitForm() {
-            this.$emit('cadastrarMedicamento', this.medicamento);
-            this.$emit('aadicionarMedicamento', this.medicamento);
+            this.$emit('adicionarMedicamento', structuredClone(toRaw(this.medicamento)));
         }
     }
 };
